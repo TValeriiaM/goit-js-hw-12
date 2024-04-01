@@ -3,26 +3,22 @@ import { galleryImages } from '../main';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-// import iziToast from 'izitoast';
-// import 'izitoast/dist/css/iziToast.min.css';
-
 const lightbox = new SimpleLightbox('.gallery-link', {
   captionsData: 'alt',
 });
 
-export function renderImages(data) {
-  const galleryMarkup = data
-    .map(
-      ({
-        webformatURL,
-        largeImageURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      }) => {
-        return `<li class="gallery-item">
+function galleryTemplate(obj) {
+  const {
+    webformatURL,
+    largeImageURL,
+    tags,
+    likes,
+    views,
+    comments,
+    downloads,
+  } = obj;
+
+  return `<li class="gallery-item">
         <a class="gallery-link" href="${largeImageURL}">
           <img
             src="${webformatURL}"
@@ -41,10 +37,14 @@ export function renderImages(data) {
           </ul>
         </a>
       </li>`;
-      }
-    )
-    .join('');
+}
 
+function galleryArray(arr) {
+  return arr.map(galleryTemplate).join('');
+}
+
+export function renderGallery(arr) {
+  const galleryMarkup = galleryArray(arr);
   galleryImages.insertAdjacentHTML('beforeend', galleryMarkup);
 
   lightbox.refresh();

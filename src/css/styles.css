@@ -159,3 +159,35 @@ p {
     transform: translate(-10px, -10px);
   }
 }
+
+
+/* btn Load more */
+
+.load-button {
+  display: block;
+  width: 124px;
+  height: 40px;
+  margin: 32px auto;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+
+/* .news-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.news-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #f9f9fd;
+  border-radius: 10px;
+}
+
+.news-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, #00c6fb, #005bea);
+} */
