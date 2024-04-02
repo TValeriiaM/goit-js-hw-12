@@ -62,7 +62,7 @@ async function loadMoreClick() {
   } catch (error) {
     console.log(error);
   }
-
+  scrollPage();
   loadMove.style.display = 'none';
   buttonLoadOff();
 }
@@ -86,4 +86,13 @@ function buttonLoadOff() {
   } else {
     showLoadMore();
   }
+}
+
+function scrollPage() {
+  const scrollHeigth = galleryImages.firstChild.getBoundingClientRect().height;
+
+  scrollBy({
+    top: scrollHeigth * 2,
+    behavior: 'smooth',
+  });
 }
